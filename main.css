@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.lift {
+    z-index: 2;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+}
+
+.no-padding {
+    padding: 0 !important;
+}
