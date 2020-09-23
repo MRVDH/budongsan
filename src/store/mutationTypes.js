@@ -1,0 +1,12 @@
+export const SELECT_FEATURE = 'selectFeature';
+export const ADD_TO_OWNED_FEATURES = 'addToOwnedFeatures';
+export const ADD_TO_RENTING_FEATURES = 'addToRentingFeatures';
+export const REMOVE_FROM_RENTING_FEATURES = 'removeFromRentingFeatures';
+export const ADD_MONEY = 'addMoney';
+export const OPEN_LIST_OF_BUILDINGS = 'openListOfBuildings';
+export const SET_LAST_PAYOUT_DATE = 'setLastPayoutDate';
+export const OPEN_BANK = 'openBank';
+export const ADD_LOAN = 'addLoan';
+export const PAY_OFF_LOAN = 'payOffLoan';
+export const OPEN_EXPERIENCE = 'openExperience';
+export const ADD_EXPERIENCE = 'addExperience';

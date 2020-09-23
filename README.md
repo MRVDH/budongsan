@@ -1,10 +1,29 @@
-# BuDongSan
-An OpenStreetMap based realtor tycoon game. BuDongSan (부동산) is the Korean word for real estate. Source code can be found on the [develop](https://github.com/MRVDH/budongsan/tree/develop) branch. Contributions are always welcome!
+## Commands
+```
+npm install
+npm run serve
+npm run build
+```
 
-[https://mrvdh.github.com/budongsan](https://mrvdh.github.com/budongsan)
+### TODO
+- ?
 
-## How to play
-Payouts are done every hour. I would recommend taking out a loan to start subletting some property and then buy property when you can. You can buy and rent any property in the world as long as the building is on OpenStreetMap. To go to an area or address look it up in the search bar in the top right corner.
+### Main
+- Start by renting and subletting
+- After doing that for a bit unlock taking out a loan and buying a small house
+- Increase size of houses you can buy the more experience you have
 
-## Note
-This is a prototype. It's probably unbalanced and there is no end game yet. I'm thinking of turning it into a multiplayer game to make it more interesting and competitive.
+### Side
+- Do renovations on the building (increases sell price and rent price), but costs money (investment) and takes time
+- investment system (bank)
+
+### Endgame
+- Own the most buildings?
+
+### Speed
+- Undetermined
+  - 1 week is 1 month IRL (so receiving a month's rent every week)
+
+### Future
+- price based on water/park in area and closeness to city centers
+- multiplayer
