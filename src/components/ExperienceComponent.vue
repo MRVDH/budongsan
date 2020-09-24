@@ -1,13 +1,13 @@
 <template>
-    <div class="row" v-if="experienceOpen">
-        <div class="col-4">
+    <b-row v-if="experienceOpen">
+        <b-col lg="12" xl="6">
             <b-card class="lift">
                 <b-card-title>Experience <b-badge pill variant="success">{{ level }}</b-badge></b-card-title>
                 <b-card-text>Progress: {{ experience.toFixed(0) }}/{{ nextExperience }}xp</b-card-text>
                 <b-progress :value="experience" :max="nextExperience" show-value variant="success" height="24px"></b-progress>
             </b-card>
-        </div>
-    </div>
+        </b-col>
+    </b-row>
 </template>
 
 <script>

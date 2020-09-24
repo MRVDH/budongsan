@@ -1,6 +1,6 @@
 <template>
-    <div class="row">
-        <div class="col-4">
+    <b-row>
+        <b-col lg="12" xl="6" id="game-stats-bar">
             <b-card class="lift">
                 <b-card-text class="flex-items">
                     <div class="flex-item">
@@ -34,14 +34,15 @@
                         <span>{{ ownedFeatures.length }}</span>
                     </div>
 
-                    <div class="flex-item">
+                    <div class="flex-item d-none d-sm-block">
                         <b-icon icon="clock"></b-icon>
                         <span>{{ timeOutput }}</span>
                     </div>
                 </b-card-text>
             </b-card>
-        </div>
-    </div>
+        </b-col>
+        <b-col lg="12" xl="6" id="search-col"></b-col>
+    </b-row>
 </template>
 
 <script>
@@ -197,11 +198,9 @@ export default {
     padding: 5px 10px;
     user-select: none;
 }
-.row {
-    padding-bottom: 15px;
-}
-.row .col-4 {
+.row .col-lg-12 {
     z-index: 3;
+    padding-bottom: 15px;
 }
 .flex-items {
     display: flex;

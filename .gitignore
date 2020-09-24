@@ -2,6 +2,7 @@
 node_modules
 /dist
 
+/src/services/accessToken.js
 
 # local env files
 .env.local

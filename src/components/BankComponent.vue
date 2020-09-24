@@ -1,9 +1,9 @@
 <template>
-    <div class="row" v-if="bankOpen">
-        <div class="col-4">
+    <b-row v-if="bankOpen">
+        <b-col lg="12" xl="6">
             <b-card title="Bank" class="lift">
                 <b-row>
-                    <b-col cols="9">
+                    <b-col cols="8" sm="9">
                         <b-form-group
                             id="loan-range-set"
                             label-cols-sm="4"
@@ -33,7 +33,7 @@
                 </b-row>
 
                 <b-row v-if="selectedLoan">
-                    <b-col cols="9">
+                    <b-col cols="8" sm="9">
                         <b-form-group
                             id="pay-off-set"
                             label-cols-sm="4"
@@ -70,8 +70,8 @@
                     </tbody>
                 </table>
             </b-card>
-        </div>
-    </div>
+        </b-col>
+    </b-row>
 </template>
 
 <script>

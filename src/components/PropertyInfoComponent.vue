@@ -1,6 +1,6 @@
 <template>
-    <div class="row" v-if="feature">
-        <div class="col-4">
+    <b-row v-if="feature">
+        <b-col lg="12" xl="6">
             <b-card title="Property info" class="lift">
                 <b-badge v-if="isRenting" style="background-color: darkslateblue; opacity: 0.8;">Subletting</b-badge>
                 <b-badge v-if="isOwned" style="background-color: dodgerblue; opacity: 0.8;">Owned</b-badge>
@@ -33,8 +33,8 @@
                     Rent
                 </b-button>
             </b-card>
-        </div>
-    </div>
+        </b-col>
+    </b-row>
 </template>
 
 <script>

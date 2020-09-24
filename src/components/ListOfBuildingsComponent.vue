@@ -1,6 +1,6 @@
 <template>
-    <div class="row" v-if="listOfBuildingsOpen">
-        <div class="col-4">
+    <b-row v-if="listOfBuildingsOpen">
+        <b-col lg="12" xl="6">
             <b-card class="lift" no-body>
                 <b-tabs card>
                     <b-tab title="Owned" active>
@@ -26,7 +26,7 @@
                     </b-tab>
                     <b-tab title="Subletting">
                         <b-card-text v-if="!rentingFeatures.length">Not subletting any buildings</b-card-text>
-                        <table v-else class="table">
+                        <table v-else class="table" thStyle="padding: 0;">
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
@@ -47,8 +47,8 @@
                     </b-tab>
                 </b-tabs>
             </b-card>
-        </div>
-    </div>
+        </b-col>
+    </b-row>
 </template>
 
 <script>

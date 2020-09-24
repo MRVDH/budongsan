@@ -1,13 +1,14 @@
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import { accessToken } from './accessToken';
 
 const defaultBuildingColor = '#aaa';
 const buildingOwnedColor = 'dodgerblue';
 const buildingRentingColor = 'darkslateblue';
 
 export function newMap() {
-    mapboxgl.accessToken = '';
+    mapboxgl.accessToken = accessToken;
 
     let map = new mapboxgl.Map({
         style: 'mapbox://styles/mapbox/light-v10',
@@ -20,10 +21,12 @@ export function newMap() {
         hash: true
     });
 
-    map.addControl(new MapboxGeocoder({
+    var geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl
-    }));
+    });
+         
+    document.getElementById('search-col').appendChild(geocoder.onAdd(map));
 
     return map;
 }

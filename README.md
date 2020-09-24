@@ -1,8 +1,19 @@
-## Commands
+## How to start
+Download Node.js.
+
+Open the console in this project and run this command:
 ```
 npm install
+```
+
+Add a file to /src/services called accessToken.js and put this inside:
+```
+export const accessToken = 'mapbox access token here';
+```
+
+Then run the following command to start the application: 
+```
 npm run serve
-npm run build
 ```
 
 ### TODO
