@@ -21,8 +21,10 @@ export default new Vuex.Store({
         listOfBuildingsOpen: false,
         bankOpen: false,
         experienceOpen: false,
+        settingsOpen: false,
         lastPayoutDate: new Date(),
-        loans: []
+        loans: [],
+        gameSpeed: 1
     },
     mutations: {
         [mt.SELECT_FEATURE] (state, feature) {
@@ -32,6 +34,7 @@ export default new Vuex.Store({
                 state.bankOpen = false;
                 state.listOfBuildingsOpen = false;
                 state.experienceOpen = false;
+                state.settingsOpen = false;
             }
         },
         [mt.ADD_TO_RENTING_FEATURES] (state, feature) {
@@ -52,6 +55,7 @@ export default new Vuex.Store({
             if (openIt) {
                 state.bankOpen = false;
                 state.experienceOpen = false;
+                state.settingsOpen = false;
                 state.selectedFeature = null;
             }
         },
@@ -64,6 +68,7 @@ export default new Vuex.Store({
             if (openIt) {
                 state.listOfBuildingsOpen = false;
                 state.experienceOpen = false;
+                state.settingsOpen = false;
                 state.selectedFeature = null;
             }
         },
@@ -88,12 +93,26 @@ export default new Vuex.Store({
             if (openIt) {
                 state.listOfBuildingsOpen = false;
                 state.bankOpen = false;
+                state.settingsOpen = false;
                 state.selectedFeature = null;
             }
         },
         [mt.ADD_EXPERIENCE] (state, experience) {
             state.experience += experience;
             state.level = getLevelFromExperience(state.experience);
+        },
+        [mt.OPEN_SETTINGS] (state, openIt) {
+            state.settingsOpen = openIt;
+
+            if (openIt) {
+                state.listOfBuildingsOpen = false;
+                state.bankOpen = false;
+                state.experienceOpen = false;
+                state.selectedFeature = null;
+            }
+        },
+        [mt.SET_GAME_SPEED] (state, gameSpeed) {
+            state.gameSpeed = gameSpeed;
         }
     },
     actions: {
@@ -132,6 +151,12 @@ export default new Vuex.Store({
         },
         [mt.ADD_EXPERIENCE] ({ commit }, experience) {
             commit(mt.ADD_EXPERIENCE, experience);
+        },
+        [mt.OPEN_SETTINGS] ({ commit }, openIt) {
+            commit(mt.OPEN_SETTINGS, openIt);
+        },
+        [mt.SET_GAME_SPEED] ({ commit }, gameSpeed) {
+            commit(mt.SET_GAME_SPEED, gameSpeed);
         }
     },
     plugins: [vuexLocal.plugin]

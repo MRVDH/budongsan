@@ -5,6 +5,7 @@
         <ListOfBuildingsComponent/>
         <BankComponent/>
         <ExperienceComponent/>
+        <SettingsComponent/>
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import PropertyInfoComponent from './PropertyInfoComponent.vue';
 import ListOfBuildingsComponent from './ListOfBuildingsComponent.vue';
 import BankComponent from './BankComponent.vue';
 import ExperienceComponent from './ExperienceComponent.vue';
+import SettingsComponent from './SettingsComponent.vue';
 
 export default {
     name: 'UiItemsComponent',
@@ -25,7 +27,8 @@ export default {
         PropertyInfoComponent,
         ListOfBuildingsComponent,
         BankComponent,
-        ExperienceComponent
+        ExperienceComponent,
+        SettingsComponent
     }
 };
 </script>

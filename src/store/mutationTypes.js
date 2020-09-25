@@ -10,3 +10,5 @@ export const ADD_LOAN = 'addLoan';
 export const PAY_OFF_LOAN = 'payOffLoan';
 export const OPEN_EXPERIENCE = 'openExperience';
 export const ADD_EXPERIENCE = 'addExperience';
+export const OPEN_SETTINGS = 'openSettings';
+export const SET_GAME_SPEED = 'setGameSpeed';

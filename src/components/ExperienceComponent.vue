@@ -14,7 +14,7 @@
 import { getExperienceFromLevel } from '../services/helperService';
 
 export default {
-    name: 'BankComponent',
+    name: 'ExperienceComponent',
     data () {
         return {
             nextExperience: 0,

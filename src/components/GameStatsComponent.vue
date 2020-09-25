@@ -11,6 +11,7 @@
                             <b-dropdown-item v-on:click="openExperienceWindow()">Experience</b-dropdown-item>
                             <b-dropdown-item v-on:click="openListOfBuildings()">List of buildings</b-dropdown-item>
                             <b-dropdown-item v-on:click="openBank()">Bank</b-dropdown-item>
+                            <b-dropdown-item v-on:click="openSettings()">Settings</b-dropdown-item>
                         </b-dropdown>
                     </div>
 
@@ -47,7 +48,7 @@
 
 <script>
 import { formatCurrency } from '../services/helperService';
-import { OPEN_LIST_OF_BUILDINGS, OPEN_BANK, OPEN_EXPERIENCE, ADD_MONEY, SET_LAST_PAYOUT_DATE } from '../store/mutationTypes';
+import { OPEN_LIST_OF_BUILDINGS, OPEN_BANK, OPEN_EXPERIENCE, ADD_MONEY, SET_LAST_PAYOUT_DATE, OPEN_SETTINGS } from '../store/mutationTypes';
 
 export default {
     name: 'GameStatsComponent',
@@ -76,6 +77,9 @@ export default {
         },
         level () {
             return this.$store.state.level;
+        },
+        gameSpeed () {
+            return this.$store.state.gameSpeed;
         }
     },
     watch: {
@@ -97,18 +101,26 @@ export default {
         },
         incomeLoop () {
             const now = new Date();
-            var timeDiffHours = (now - new Date(this.$store.state.lastPayoutDate)) / (1000 /*second*/ * 60 /*minute*/ * 60 /*hour*/)
+            var timeInterval = 1000 * 60 /*minute*/;
 
-            timeDiffHours = Math.floor(timeDiffHours);
+            if (this.gameSpeed > 0) {
+                timeInterval *= 60 /*hour*/;
+            }
+            if (this.gameSpeed > 1) {
+                timeInterval *= 24 /*day*/;
+            }
+            if (this.gameSpeed > 2) {
+                timeInterval *= 7 /*week*/;
+            }
+
+            var timeDiff = (now - new Date(this.$store.state.lastPayoutDate)) / timeInterval;
+
+            timeDiff = Math.floor(timeDiff);
             
             // Timecheck, if a certain time hasn't passed then don't process income.
-            if (timeDiffHours < 1) {
+            if (timeDiff < 1) {
                 return;
             }
-            // mostly debug purposes
-            // if (timeDiffHours < 1) {
-            //     timeDiffHours = 1;
-            // }
 
             this.$store.dispatch(SET_LAST_PAYOUT_DATE, now);
             this.lastPayout = now;
@@ -155,7 +167,7 @@ export default {
                 return;
             }
 
-            moneyToAdd *= timeDiffHours;
+            moneyToAdd *= timeDiff;
 
             // costs higher than income, problematic
             if (moneyToAdd < 0) {
@@ -188,6 +200,9 @@ export default {
         },
         openExperienceWindow () {
             this.$store.dispatch(OPEN_EXPERIENCE, !this.$store.state.experienceOpen);
+        },
+        openSettings () {
+            this.$store.dispatch(OPEN_SETTINGS, !this.$store.state.settingsOpen);
         }
     }
 };
