@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { calculateAreaOfFeature, calculateIncomeRentingOfFeature, calculateIncomeOwnedOfFeature, calculateRentPrice, calculatePropertyPrice } from '../services/helperService';
+import { calculateAreaOfFeature, calculateIncomeRentingOfFeature, calculateIncomeOwnedOfFeature, calculateRentPrice, calculatePropertyPrice, getLevelRequiredForBuilding } from '../services/helperService';
 import { addBaseLayersToMap, defineLayerId, newMap } from '../services/mapService';
 import { SELECT_FEATURE } from '../store/mutationTypes';
 
@@ -120,6 +120,33 @@ export default {
             this.map.getSource("buildings-owned").setData({
                 "type": "FeatureCollection",
                 "features": ownedFeatures
+            });
+
+
+            let featuresNotEnoughtLevels = [];
+            let featuresNotEnoughtMoney = [];
+            let featuresNotEnoughtMoneyBuy = [];
+            features.filter(x => !(rentingFeaturesIds.includes(x.id) || ownedFeaturesIds.includes(x.id))).forEach(x => {
+                let x_with_area = x;
+                x_with_area.area = calculateAreaOfFeature(x);
+                if (getLevelRequiredForBuilding(x) > this.$store.state.level) featuresNotEnoughtLevels.push(x);
+                else if (calculateRentPrice(x) > this.$store.state.money) featuresNotEnoughtMoney.push(x);
+                else if (calculatePropertyPrice(x) > this.$store.state.money) featuresNotEnoughtMoneyBuy.push(x);
+            });
+
+            this.map.getSource("buildings-not-enought-level").setData({
+                "type": "FeatureCollection",
+                "features": featuresNotEnoughtLevels
+            });
+
+            this.map.getSource("buildings-not-enought-money").setData({
+                "type": "FeatureCollection",
+                "features": featuresNotEnoughtMoney
+            });
+
+            this.map.getSource("buildings-not-enought-money-buy").setData({
+                "type": "FeatureCollection",
+                "features": featuresNotEnoughtMoneyBuy
             });
         }
     }

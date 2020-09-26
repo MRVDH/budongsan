@@ -4,6 +4,9 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { accessToken } from './accessToken';
 
 const defaultBuildingColor = '#aaa';
+const buildingNotEnoughtLevel = '#a00'
+const buildingNotEnoughtMoney = '#e00'
+const buildingNotEnoughtMoneyBuy = '#f90'
 const buildingOwnedColor = 'dodgerblue';
 const buildingRentingColor = 'darkslateblue';
 
@@ -53,6 +56,66 @@ export function addBaseLayersToMap(map, labelLayerId) {
             'fill-extrusion-color': defaultBuildingColor,
             'fill-extrusion-height': ['get', 'height'],
             'fill-extrusion-opacity': 0.6
+        }
+    }, labelLayerId);
+
+    map.addSource('buildings-not-enought-level', {
+        type: 'geojson',
+        data: {
+            "type": "FeatureCollection",
+            "features": []
+        }
+    });
+
+    map.addLayer({
+        "id": "highlight-buildings-not-enought-level",
+        "source": "buildings-not-enought-level",
+        'type': 'fill',
+        'minzoom': 13,
+        'paint': {
+            'fill-color': buildingNotEnoughtLevel,
+            'fill-opacity': 0.6,
+            'fill-outline-color': 'gray'
+        }
+    }, labelLayerId);
+
+    map.addSource('buildings-not-enought-money', {
+        type: 'geojson',
+        data: {
+            "type": "FeatureCollection",
+            "features": []
+        }
+    });
+
+    map.addLayer({
+        "id": "highlight-buildings-not-enought-money",
+        "source": "buildings-not-enought-money",
+        'type': 'fill',
+        'minzoom': 13,
+        'paint': {
+            'fill-color': buildingNotEnoughtMoney,
+            'fill-opacity': 0.6,
+            'fill-outline-color': 'gray'
+        }
+    }, labelLayerId);
+
+    map.addSource('buildings-not-enought-money-buy', {
+        type: 'geojson',
+        data: {
+            "type": "FeatureCollection",
+            "features": []
+        }
+    });
+
+    map.addLayer({
+        "id": "highlight-buildings-not-enought-money-buy",
+        "source": "buildings-not-enought-money-buy",
+        'type': 'fill',
+        'minzoom': 13,
+        'paint': {
+            'fill-color': buildingNotEnoughtMoneyBuy,
+            'fill-opacity': 0.6,
+            'fill-outline-color': 'gray'
         }
     }, labelLayerId);
 
