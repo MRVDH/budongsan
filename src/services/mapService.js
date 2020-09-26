@@ -4,9 +4,9 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { accessToken } from './accessToken';
 
 const defaultBuildingColor = '#aaa';
-const buildingNotEnoughtLevel = '#a00'
-const buildingNotEnoughtMoney = '#e00'
-const buildingNotEnoughtMoneyBuy = '#f90'
+const buildingNotEnoughLevel = '#a00'
+const buildingNotEnoughMoney = '#e00'
+const buildingNotEnoughMoneyBuy = '#f90'
 const buildingOwnedColor = 'dodgerblue';
 const buildingRentingColor = 'darkslateblue';
 
@@ -59,7 +59,7 @@ export function addBaseLayersToMap(map, labelLayerId) {
         }
     }, labelLayerId);
 
-    map.addSource('buildings-not-enought-level', {
+    map.addSource('buildings-not-enough-level', {
         type: 'geojson',
         data: {
             "type": "FeatureCollection",
@@ -68,18 +68,18 @@ export function addBaseLayersToMap(map, labelLayerId) {
     });
 
     map.addLayer({
-        "id": "highlight-buildings-not-enought-level",
-        "source": "buildings-not-enought-level",
+        "id": "highlight-buildings-not-enough-level",
+        "source": "buildings-not-enough-level",
         'type': 'fill',
         'minzoom': 13,
         'paint': {
-            'fill-color': buildingNotEnoughtLevel,
+            'fill-color': buildingNotenoughLevel,
             'fill-opacity': 0.6,
             'fill-outline-color': 'gray'
         }
     }, labelLayerId);
 
-    map.addSource('buildings-not-enought-money', {
+    map.addSource('buildings-not-enough-money', {
         type: 'geojson',
         data: {
             "type": "FeatureCollection",
@@ -88,18 +88,18 @@ export function addBaseLayersToMap(map, labelLayerId) {
     });
 
     map.addLayer({
-        "id": "highlight-buildings-not-enought-money",
-        "source": "buildings-not-enought-money",
+        "id": "highlight-buildings-not-enough-money",
+        "source": "buildings-not-enough-money",
         'type': 'fill',
         'minzoom': 13,
         'paint': {
-            'fill-color': buildingNotEnoughtMoney,
+            'fill-color': buildingNotenoughMoney,
             'fill-opacity': 0.6,
             'fill-outline-color': 'gray'
         }
     }, labelLayerId);
 
-    map.addSource('buildings-not-enought-money-buy', {
+    map.addSource('buildings-not-enough-money-buy', {
         type: 'geojson',
         data: {
             "type": "FeatureCollection",
@@ -108,12 +108,12 @@ export function addBaseLayersToMap(map, labelLayerId) {
     });
 
     map.addLayer({
-        "id": "highlight-buildings-not-enought-money-buy",
-        "source": "buildings-not-enought-money-buy",
+        "id": "highlight-buildings-not-enough-money-buy",
+        "source": "buildings-not-enough-money-buy",
         'type': 'fill',
         'minzoom': 13,
         'paint': {
-            'fill-color': buildingNotEnoughtMoneyBuy,
+            'fill-color': buildingNotenoughMoneyBuy,
             'fill-opacity': 0.6,
             'fill-outline-color': 'gray'
         }

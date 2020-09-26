@@ -123,28 +123,28 @@ export default {
             });
 
 
-            let featuresNotEnoughtLevels = [];
-            let featuresNotEnoughtMoney = [];
-            let featuresNotEnoughtMoneyBuy = [];
+            let featuresNotEnoughLevels = [];
+            let featuresNotEnoughMoney = [];
+            let featuresNotEnoughMoneyBuy = [];
             features.filter(x => !(rentingFeaturesIds.includes(x.id) || ownedFeaturesIds.includes(x.id))).forEach(x => {
                 let x_with_area = x;
                 x_with_area.area = calculateAreaOfFeature(x);
-                if (getLevelRequiredForBuilding(x) > this.$store.state.level) featuresNotEnoughtLevels.push(x);
-                else if (calculateRentPrice(x) > this.$store.state.money) featuresNotEnoughtMoney.push(x);
-                else if (calculatePropertyPrice(x) > this.$store.state.money) featuresNotEnoughtMoneyBuy.push(x);
+                if (getLevelRequiredForBuilding(x) > this.$store.state.level) featuresNotEnoughLevels.push(x);
+                else if (calculateRentPrice(x) > this.$store.state.money) featuresNotEnoughMoney.push(x);
+                else if (calculatePropertyPrice(x) > this.$store.state.money) featuresNotEnoughMoneyBuy.push(x);
             });
 
-            this.map.getSource("buildings-not-enought-level").setData({
+            this.map.getSource("buildings-not-enough-level").setData({
                 "type": "FeatureCollection",
                 "features": featuresNotEnoughtLevels
             });
 
-            this.map.getSource("buildings-not-enought-money").setData({
+            this.map.getSource("buildings-not-enough-money").setData({
                 "type": "FeatureCollection",
                 "features": featuresNotEnoughtMoney
             });
 
-            this.map.getSource("buildings-not-enought-money-buy").setData({
+            this.map.getSource("buildings-not-enough-money-buy").setData({
                 "type": "FeatureCollection",
                 "features": featuresNotEnoughtMoneyBuy
             });
