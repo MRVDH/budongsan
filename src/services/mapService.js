@@ -73,7 +73,7 @@ export function addBaseLayersToMap(map, labelLayerId) {
         'type': 'fill',
         'minzoom': 13,
         'paint': {
-            'fill-color': buildingNotenoughLevel,
+            'fill-color': buildingNotEnoughLevel,
             'fill-opacity': 0.6,
             'fill-outline-color': 'gray'
         }
@@ -93,7 +93,7 @@ export function addBaseLayersToMap(map, labelLayerId) {
         'type': 'fill',
         'minzoom': 13,
         'paint': {
-            'fill-color': buildingNotenoughMoney,
+            'fill-color': buildingNotEnoughMoney,
             'fill-opacity': 0.6,
             'fill-outline-color': 'gray'
         }
@@ -113,7 +113,7 @@ export function addBaseLayersToMap(map, labelLayerId) {
         'type': 'fill',
         'minzoom': 13,
         'paint': {
-            'fill-color': buildingNotenoughMoneyBuy,
+            'fill-color': buildingNotEnoughMoneyBuy,
             'fill-opacity': 0.6,
             'fill-outline-color': 'gray'
         }

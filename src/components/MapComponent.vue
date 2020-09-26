@@ -136,17 +136,17 @@ export default {
 
             this.map.getSource("buildings-not-enough-level").setData({
                 "type": "FeatureCollection",
-                "features": featuresNotEnoughtLevels
+                "features": featuresNotEnoughLevels
             });
 
             this.map.getSource("buildings-not-enough-money").setData({
                 "type": "FeatureCollection",
-                "features": featuresNotEnoughtMoney
+                "features": featuresNotEnoughMoney
             });
 
             this.map.getSource("buildings-not-enough-money-buy").setData({
                 "type": "FeatureCollection",
-                "features": featuresNotEnoughtMoneyBuy
+                "features": featuresNotEnoughMoneyBuy
             });
         }
     }
