@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -11,9 +11,13 @@
     "@mapbox/mapbox-gl-geocoder": "^4.6.0",
     "@popperjs/core": "^2.4.4",
     "@turf/turf": "^5.1.6",
+    "axios": "^1.7.4",
     "bootstrap-vue": "^2.16.0",
     "core-js": "^3.6.5",
+    "leaflet": "^1.9.4",
+    "leaflet.glify": "^3.3.0",
     "mapbox-gl": "^1.12.0",
+    "maplibre-gl": "^4.5.2",
     "portal-vue": "^2.1.7",
     "vue": "^2.6.11",
     "vuex": "^3.4.0",
