@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This project is no longer maintained. Consider using an alternative or forking if needed.
+
 # BuDongSan
 An OpenStreetMap based realtor tycoon game. BuDongSan (부동산) is the Korean word for real estate. Source code can be found on the [develop](https://github.com/MRVDH/budongsan/tree/develop) branch. Contributions are always welcome!
 
